@@ -15,10 +15,10 @@ const getOne = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const { destinationId, name, rating, street, propertyType, about, price, accuracy, value, cleanliness, checkIn, communication, amenities, location, onMap } = req.body;
+    const { DestinationId, name, rating, street, propertyType, about, price, accuracy, value, cleanliness, checkIn, communication, amenities, location, onMap } = req.body;
     
     const newStay = await Stay.create({
-      DestinationId: destinationId,
+      DestinationId,
       name: name,
       rating: rating,
       street: street,
