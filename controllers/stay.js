@@ -1,6 +1,15 @@
 import Stay from "../models/Stay.js";
 
 const getAll = async (req, res) => {
+  const { limit, page } = req.query;
+
+  if (limit && page) {
+    const stays = await Stay.findAll();
+    const firstElement = page * limit - limit;
+    const lastElement = page * limit;
+    res.send({ data: stays.slice(firstElement, lastElement), countOfElements: stays.length, currentPage: page });
+    return;
+  }
   const stays = await Stay.findAll();
   res.send(stays);
 };
