@@ -3,14 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { ApiError } from "../exceptions/ApiError.js";
 
 const currentModuleUrl = import.meta.url;
 const currentModulePath = fileURLToPath(currentModuleUrl);
 const currentDirPath = dirname(currentModulePath);
 
 const getAll = async (req, res) => {
-  const amenitites = await Amenity.findAll();
-  res.send(amenitites);
+    const amenitites = await Amenity.findAll();
+    res.send(amenitites);
 };
 
 const create = async (req, res) => {

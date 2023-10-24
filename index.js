@@ -4,11 +4,7 @@ import path from 'path';
 import cors from 'cors';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { destinationsRouter } from './routes/destinations.js';
-import { amenityRouter } from './routes/amenity.js';
-import { imagesRouter } from './routes/images.js';
-import { stayRouter } from './routes/stay.js';
-import { reviewRouter } from './routes/review.js';
+import { router } from './routes/index.js';
 
 const currentModuleUrl = import.meta.url;
 const currentModulePath = fileURLToPath(currentModuleUrl);
@@ -24,11 +20,7 @@ app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-app.use(destinationsRouter);
-app.use(amenityRouter);
-app.use(imagesRouter);
-app.use(stayRouter);
-app.use(reviewRouter);
+app.use(router);
 
 const port = 5000;
 

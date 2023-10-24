@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { where } from "sequelize";
 
 const currentModuleUrl = import.meta.url;
 const currentModulePath = fileURLToPath(currentModuleUrl);
